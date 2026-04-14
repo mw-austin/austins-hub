@@ -1,1865 +1,918 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio â Creative Workspace</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WAKE — A Marketwake Film</title>
+<meta name="description" content="A documentary short marking ten years of Marketwake." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===============================================
-   RESET & BASE
-   =============================================== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #ffffff;
-  --bg-secondary: #f7f7f5;
-  --bg-hover: #f1f1ef;
-  --bg-active: #e8e8e5;
-  --text: #37352f;
-  --text-secondary: #787774;
-  --text-light: #b4b4b0;
-  --border: #e8e8e5;
-  --accent: #2eaadc;
-  --accent-light: #e8f4f8;
-  --red: #eb5757;
-  --red-light: #fce4e4;
-  --green: #4dab6f;
-  --green-light: #e4f5eb;
-  --yellow: #dfab01;
-  --yellow-light: #fdf4d4;
-  --purple: #9065b0;
-  --purple-light: #f0e6f6;
-  --orange: #d9730d;
-  --orange-light: #fdebd0;
-  --pink: #c14c8a;
-  --pink-light: #f5e0ef;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
-  --radius: 6px;
-  --radius-lg: 10px;
-  --sidebar-width: 260px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "SF Mono", "Fira Code", monospace;
-}
-
-html, body {
-  height: 100%;
-  font-family: var(--font);
-  font-size: 15px;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ===============================================
-   LAYOUT
-   =============================================== */
-.app {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* ===============================================
-   SIDEBAR
-   =============================================== */
-.sidebar {
-  width: var(--sidebar-width);
-  min-width: var(--sidebar-width);
-  background: var(--bg-secondary);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  transition: transform 0.2s ease;
-}
-
-.sidebar-header {
-  padding: 20px 16px 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sidebar-logo {
-  width: 28px;
-  height: 28px;
-  background: var(--text);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.sidebar-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.sidebar-section {
-  padding: 8px 8px 4px;
-}
-
-.sidebar-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--text-light);
-  padding: 4px 8px 6px;
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--text-secondary);
-  transition: all 0.1s ease;
-  user-select: none;
-}
-
-.nav-item:hover {
-  background: var(--bg-hover);
-  color: var(--text);
-}
-
-.nav-item.active {
-  background: var(--bg-active);
-  color: var(--text);
-  font-weight: 500;
-}
-
-.nav-icon {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.sidebar-spacer { flex: 1; }
-
-.sidebar-footer {
-  padding: 12px 16px;
-  border-top: 1px solid var(--border);
-  font-size: 11px;
-  color: var(--text-light);
-}
-
-/* ============================================
-   MAIN CONTENT
-   =============================================== */
-.main {
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.page-header {
-  padding: 40px 60px 20px;
-  flex-shrink: 0;
-}
-
-.page-header h1 {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.2;
-}
-
-.page-header p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-top: 6px;
-}
-
-.page-content {
-  padding: 0 60px 60px;
-  flex: 1;
-}
-
-.page-actions {
-  displFay: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  flex-wr<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio â Creative Workspace</title>
-<style>
-/* ============================================
-   RESET & BASE
-   ============================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #ffffff;
-  --bg-secondary: #f7f7f5;
-  --bg-hover: #f1f1ef;
-  --bg-active: #e8e8e5;
-  --text: #37352f;
-  --text-secondary: #787774;
-  --text-light: #b4b4b0;
-  --border: #e8e8e5;
-  --accent: #2eaadc;
-  --accent-light: #e8f4f8;
-  --red: #eb5757;
-  --red-light: #fce4e4;
-  --green: #4dab6f;
-  --green-light: #e4f5eb;
-  --yellow: #dfab01;
-  --yellow-light: #fdf4d4;
-  --purple: #9065b0;
-  --purple-light: #f0e6f6;
-  --orange: #d9730d;
-  --orange-light: #fdebd0;
-  --pink: #c14c8a;
-  --pink-light: #f5e0ef;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
-  --radius: 6px;
-  --radius-lg: 10px;
-  --sidebar-width: 260px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "SF Mono", "Fira Code", monospace;
-}
-
-html, body {
-  height: 100%;
-  font-family: var(--font);
-  font-size: 15px;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ============================================
-   LAYOUT
-   ============================================ */
-.app {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* ============================================
-   SIDEBAR
-   ============================================ */
-.sidebar {
-  width: var(--sidebar-width);
-  min-width: var(--sidebar-width);
-  background: var(--bg-secondary);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  transition: transform 0.2s ease;
-}
-
-.sidebar-header {
-  padding: 20px 16px 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sidebar-logo {
-  width: 28px;
-  height: 28px;
-  background: var(--text);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.sidebar-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.sidebar-section {
-  padding: 8px 8px 4px;
-}
-
-.sidebar-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--text-light);
-  padding: 4px 8px 6px;
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--text-secondary);
-  transition: all 0.1s ease;
-  user-select: none;
-}
-
-.nav-item:hover {
-  background: var(--bg-hover);
-  color: var(--text);
-}<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio — Creative Workspace</title>
-<style>
-/* ============================================
-   RESET & BASE
-   ============================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #ffffff;
-  --bg-secondary: #f7f7f5;
-  --bg-hover: #f1f1ef;
-  --bg-active: #e8e8e5;
-  --text: #37352f;
-  --text-secondary: #787774;
-  --text-light: #b4b4b0;
-  --border: #e8e8e5;
-  --accent: #2eaadc;
-  --accent-light: #e8f4f8;
-  --red: #eb5757;
-  --red-light: #fce4e4;
-  --green: #4dab6f;}
-
-.kanban-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 10px 12px;
-  box-shadow: var(--shadow-sm);
-  cursor: grab;
-  transition: box-shadow 0.15s ease;
-  border: 1px solid var(--border);
-}
-
-.kanban-card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.kanban-card.dragging {
-  opacity: 0.5;
-  box-shadow: var(--shadow-lg);
-}
-
-.kanban-card-title {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-.kanban-card-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-.kanban-add {
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  color: var(--text-light);
-  font-size: 13px;
-  transition: color 0.1s ease;
-  flex-shrink: 0;
-}
-.kanban-add:hover { color: var(--text-secondary); }
-
-/* ============================================
-   NOTES / EDITOR
-   ============================================ */
-.notes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 12px;
-}
-
-.note-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 18px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  min-height: 120px;
-}
-
-.note-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: #ddd;
-}
-
-.note-card-title {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.note-card-preview {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.note-card-date {
-  font-size: 11px;
-  color: var(--text-light);
-  margin-top: 12px;
-}
-
-.editor-container {
-  max-width: 800px;
-}
-
-.editor-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 13px;
-  color: var(--text-secondary);
-  cursor: pointer;
-  margin-bottom: 16px;
-  padding: 4px 8px;
-  border-radius: var(--radius);
-}
-.editor-back:hover { background: var(--bg-hover); }
-
-.editor-title {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text);
-  font-family: var(--font);
-  background: transparent;
-  margin-bottom: 8px;
-}
-
-.editor-title::placeholder { color: var(--text-light); }
-  gap: 8px;
-}
-
-.binder-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 16px 20px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.binder-card:hover { box-shadow: var(--shadow-md); border-color: #ddd; }
-
-.binder-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-secondary);
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.binder-content {
-  flex: 1;
-}
-
-.binder-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.binder-desc {
-  font-size: 12px;
-  color: var(--text-secondary);
-  margin-top: 4px;
-}
-
-.binder-count {
-  font-size: 12px;
-  color: var(--text-light);
-  background: var(--bg-secondary);
-  padding: 2px 8px;
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-/* ============================================
-   DASHBOARD
-   ============================================ */
-.dash-header {
-  margin-bottom: 32px;
-}
-
-.dash-header h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.dash-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 40px;
-}
-
-.dash-stat {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.dash-stat-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  color: var(--text-light);
-  font-weight: 600;
-}
-
-.dash-stat-value {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.dash-section {
-  margin-bottom: 40px;
-}
-
-.dash-section h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: var(--text);
-}
-
-.empty-state {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--text-secondary);
-}
-
-.empty-state-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.empty-state h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.empty-state p {
-  font-size: 13px;
-}
-
-.empty-state-secondary {
-  font-size: 12px;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
-/* ============================================
-   SEARCH
-   ============================================ */
-.search-bar {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.search-bar input {
-  width: 100%;
-  max-width: 360px;
-  padding: 8px 12px 8px 34px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 14px;
-  gap: 8px;
-}
-
-.binder-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 16px 20px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.binder-card:hover { box-shadow: var(--shadow-md); border-color: #ddd; }
-
-.binder-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-secondary);
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.binder-content {
-  flex: 1;
-}
-
-.binder-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.binder-desc {
-  font-size: 12px;
-  color: var(--text-secondary);
-  margin-top: 4px;
-}
-
-.binder-count {
-  font-size: 12px;
-  color: var(--text-light);
-  background: var(--bg-secondary);
-  padding: 2px 8px;
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-/* ============================================
-   DASHBOARD
-   ============================================ */
-.dash-header {
-  margin-bottom: 32px;
-}
-
-.dash-header h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.dash-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 40px;
-}
-
-.dash-stat {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.dash-stat-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  color: var(--text-light);
-  font-weight: 600;
-}
-
-.dash-stat-value {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.dash-section {
-  margin-bottom: 40px;
-}
-
-.dash-section h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: var(--text);
-}
-
-.empty-state {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--text-secondary);
-}
-
-.empty-state-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.empty-state h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.empty-state p {
-  font-size: 13px;
-}
-
-.empty-state-secondary {
-  font-size: 12px;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
-/* ============================================
-   SEARCH
-   ============================================ */
-.search-bar {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.search-bar input {
-  width: 100%;
-  max-width: 360px;
-  padding: 8px 12px 8px 34px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 14px;ay: block; }
+  :root {
+    --bg: #0C0C0C;
+    --bg-2: #161616;
+    --fg: #F0F1F2;
+    --fg-dim: #8a8a8a;
+    --fg-dimmer: #555;
+    --accent: #EEFF25;
+    --accent-2: #CEFF58;
+    --accent-3: #0038FF;
+    --accent-4: #FF5E30;
+    --beige: #EAE8E1;
+    --rule: #232323;
+    --chapter: #B4C6BB;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    font-weight: 400;
+    line-height: 1.55;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .serif { font-family: 'Spectral', Georgia, serif; font-weight: 400; font-style: italic; }
+
+  /* Progress bar */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 2px;
+    background: var(--accent); z-index: 100; width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  /* Nav */
+  nav.top {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: 20px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 50;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  nav.top.scrolled { border-bottom-color: var(--rule); }
+  nav.top .brand {
+    font-weight: 700; letter-spacing: 0.15em; font-size: 13px;
+  }
+  nav.top .meta {
+    font-size: 12px; color: var(--fg-dim); letter-spacing: 0.1em;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 0 24px;
+    position: relative;
+    text-align: center;
+  }
+  .hero .tag {
+    font-size: 11px; letter-spacing: 0.35em; color: var(--fg-dim);
+    text-transform: uppercase; margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: clamp(80px, 18vw, 240px);
+    font-weight: 800; letter-spacing: -0.04em; line-height: 0.9;
+    margin-bottom: 32px;
+  }
+  .hero .sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--fg-dim); max-width: 640px;
+    font-style: italic; font-family: 'Spectral', serif;
+    line-height: 1.4;
+  }
+  .hero .scroll {
+    position: absolute; bottom: 40px;
+    font-size: 11px; letter-spacing: 0.3em; color: var(--fg-dimmer);
+    text-transform: uppercase;
+  }
+
+  /* Sections */
+  section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 120px 32px;
+    position: relative;
+  }
+  section.wide { max-width: 1180px; }
+  section + section { padding-top: 0; }
+  section .chapter-label {
+    font-size: 11px; letter-spacing: 0.35em; color: var(--chapter);
+    text-transform: uppercase; margin-bottom: 24px;
+    font-weight: 600;
+  }
+  section h2 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
+    margin-bottom: 40px;
+  }
+  section h3 {
+    font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+    margin-top: 56px; margin-bottom: 16px;
+    color: var(--fg);
+  }
+  section h4 {
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--fg-dim); margin-top: 36px; margin-bottom: 14px;
+    font-weight: 600;
+  }
+  section p { margin-bottom: 20px; color: #d8d8d8; }
+  section p.lead {
+    font-size: 22px; line-height: 1.45; color: var(--fg);
+    margin-bottom: 32px; font-weight: 300; letter-spacing: -0.01em;
+  }
+  section ul { list-style: none; margin-bottom: 20px; }
+  section ul li {
+    padding-left: 24px; position: relative; margin-bottom: 10px;
+    color: #d8d8d8;
+  }
+  section ul li::before {
+    content: "—"; position: absolute; left: 0; color: var(--fg-dim);
+  }
+  section a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  section a:hover { border-bottom-color: var(--accent); }
+  section strong { color: var(--fg); font-weight: 600; }
+
+  .rule {
+    max-width: 860px; margin: 0 auto;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Pull quotes */
+  .pull {
+    font-family: 'Spectral', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(26px, 4vw, 40px);
+    line-height: 1.25; font-weight: 400;
+    padding: 40px 0;
+    color: var(--fg);
+    border-left: 2px solid var(--accent);
+    padding-left: 32px;
+    margin: 48px 0;
+  }
+  .pull.center {
+    border-left: none; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    padding: 48px 0; text-align: center; padding-left: 0;
+  }
+
+  /* Chapter hero */
+  .chapter-hero {
+    text-align: center;
+    padding: 160px 24px 120px;
+    border-top: 1px solid var(--rule);
+    margin-top: 0;
+  }
+  .chapter-hero .num {
+    font-size: 12px; letter-spacing: 0.4em; color: var(--chapter);
+    margin-bottom: 12px; font-weight: 600;
+  }
+  .chapter-hero h2 {
+    font-size: clamp(56px, 10vw, 120px);
+    font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+    margin-bottom: 0;
+  }
+
+  /* Script table */
+  .script {
+    overflow-x: auto;
+    margin: 40px 0;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
+  .script table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 720px;
+  }
+  .script th {
+    background: #000;
+    color: var(--fg);
+    text-align: left;
+    padding: 16px 18px;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid var(--rule);
+  }
+  .script td {
+    padding: 20px 18px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.55;
+    color: #c8c8c8;
+  }
+  .script tr:last-child td { border-bottom: none; }
+  .script td.time {
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+    width: 100px;
+    font-variant-numeric: tabular-nums;
+  }
+  .script td.visual { width: 42%; color: #c8c8c8; }
+  .script td.audio { width: 42%; color: #e0e0e0; font-style: normal; }
+  .script td em { font-style: italic; color: var(--fg-dim); }
+
+  /* Callout */
+  .callout {
+    padding: 32px;
+    background: var(--bg-2);
+    border-left: 2px solid var(--accent);
+    margin: 32px 0;
+  }
+  .callout h4 { margin-top: 0; color: var(--accent); }
+
+  /* Two column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin: 32px 0;
+  }
+  @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; gap: 0; } }
+
+  /* Timeline */
+  .timeline { margin: 32px 0; }
+  .timeline .row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .timeline .row:last-child { border-bottom: 1px solid var(--rule); }
+  .timeline .week {
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--fg-dim); font-weight: 600; padding-top: 2px;
+  }
+  .timeline ul { margin: 0; }
+  .timeline ul li { margin-bottom: 6px; }
+  @media (max-width: 720px) {
+    .timeline .row { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* Footer */
+  footer {
+    padding: 120px 32px 80px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 120px;
+  }
+  footer .mark {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 800; letter-spacing: -0.04em;
+    margin-bottom: 8px;
+  }
+  footer .year {
+    font-size: 14px; letter-spacing: 0.3em;
+    color: var(--fg-dim); text-transform: uppercase;
+  }
+  footer .credit {
+    margin-top: 48px; font-size: 12px; color: var(--fg-dimmer);
+    letter-spacing: 0.1em;
+  }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 640px) {
+    nav.top { padding: 16px 20px; }
+    nav.top .meta { display: none; }
+    section { padding: 80px 24px; }
+    section h3 { margin-top: 40px; }
+    .hero .tag { font-size: 10px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="app">
-  <!-- Mobile toggle -->
-  <div class="mobile-toggle" onclick="toggleSidebar()">☰</div>
+<div class="progress" id="progress"></div>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <div class="sidebar-logo">S</div>
-      <span class="sidebar-title">Studio</span>
-    </div>
+<nav class="top" id="nav">
+  <div class="brand">WAKE — A MARKETWAKE FILM</div>
+  <div class="meta">10-YEAR ANNIVERSARY · PROPOSAL</div>
+</nav>
 
-    <div class="sidebar-section">
-      <div class="nav-item active" data-view="dashboard" onclick="navigate('dashboard')">
-        <span class="nav-icon">●</span> Dashboard
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Workspace</div>
-      <div class="nav-item" data-view="projects" onclick="navigate('projects')">
-        <span class="nav-icon">◆</span> Projects & Tasks
-      </div>
-      <div class="nav-item" data-view="notes" onclick="navigate('notes')">
-        <span class="nav-icon">✎</span> Notes & Docs
-      </div>
-      <div class="nav-item" data-view="storyboards" onclick="navigate('storyboards')">
-        <span class="nav-icon">▦</span> Storyboards
-      </div>
-      <div class="nav-item" data-view="binders" onclick="navigate('binders')">
-        <span class="nav-icon">▤</span> Production Binders
-      </div>
-    </div>
-
-    <div class="sidebar-spacer"></div>
-    <div class="sidebar-footer">
-      Studio — offline workspace<br>
-      Data saved locally in your browser
-    </div>
-  </aside>
-
-  <!-- MAIN -->
-  <main class="main" id="main">
-
-    <!-- DASHBOARD -->
-    <div class="view active" id="view-dashboard">
-      <div class="page-header">
-        <h1>Dashboard</h1>
-        <p>Welcome back. Here's your workspace at a glance.</p>
-      </div>
-      <div class="page-content">
-        <div class="dash-stats" id="dash-stats"></div>
-        <div class="dash-section-title">Recent Activity</div>
-        <div class="dash-recent" id="dash-recent"></div>
-      </div>
-    </div>
-
-    <!-- PROJECTS & TASKS -->
-    <div class="view" id="view-projects">
-      <div class="page-header">
-        <h1>Projects & Tasks</h1>
-        <p>Track everything from concept to completion.</p>
-      </div>
-      <div class="page-content">
-        <div class="page-actions">
-          <button class="btn btn-primary" onclick="openTaskModal()">+ New Task</button>
-          <div class="view-toggle">
-            <button class="view-toggle-btn active" onclick="setProjectView('kanban', this)">Board</button>
-            <button class="view-toggle-btn" onclick="setProjectView('table', this)">Table</button>
-          </div>
-        </div>
-        <div id="projects-kanban"></div>
-        <div id="projects-table" style="display:none"></div>
-      </div>
-    </div>
-
-    <!-- NOTES -->
-    <div class="view" id="view-notes">
-      <div class="page-header">
-        <h1>Notes & Docs</h1>
-        <p>Capture ideas, meeting notes, reference docs — anything.</p>
-      </div>
-      <div class="page-content">
-        <div class="page-actions" id="notes-actions">
-          <button class="btn btn-primary" onclick="createNote()">+ New Note</button>
-        </div>
-        <div class="search-bar" id="notes-search">
-          <span class="search-bar-icon">⌕</span>
-          <input type="text" placeholder="Search notes..." oninput="renderNotes(this.value)">
-        </div>
-        <div id="notes-list"></div>
-        <div id="note-editor" style="display:none"></div>
-      </div>
-    </div>
-
-    <!-- STORYBOARDS -->
-    <div class="view" id="view-storyboards">
-      <div class="page-header">
-        <h1>Storyboards</h1>
-        <p>Plan your shots, scenes, and visual sequences.</p>
-      </div>
-      <div class="page-content">
-        <div class="page-actions">
-          <button class="btn btn-primary" onclick="openStoryboardModal()">+ New Storyboard</button>
-        </div>
-        <div id="storyboard-select"></div>
-        <div id="storyboard-detail" style="display:none"></div>
-        <div id="storyboard-list"></div>
-      </div>
-    </div>
-
-    <!-- PRODUCTION BINDERS -->
-    <div class="view" id="view-binders">
-      <div class="page-header">
-        <h1>Production Binders</h1>
-        <p>Organized reference binders for every shoot and project.</p>
-      </div>
-      <div class="page-content">
-        <div class="page-actions">
-          <button class="btn btn-primary" onclick="openBinderModal()">+ New Binder</button>
-        </div>
-        <div id="binders-list"></div>
-        <div id="binder-detail" style="display:none"></div>
-      </div>
-    </div>
-
-  </main>
+<!-- HERO -->
+<div class="hero">
+  <div class="tag">A Marketwake Film  ·  Ten Years</div>
+  <h1>WAKE</h1>
+  <div class="sub">“Teach them to long for the immensity of the sea.”</div>
+  <div class="scroll">Scroll</div>
 </div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModalOverlay(event)">
-  <div class="modal" id="modal"></div>
+<!-- THE FILM -->
+<section class="reveal">
+  <div class="chapter-label">The Film</div>
+  <h2>A documentary short for the decade nobody was looking.</h2>
+  <p class="lead">A five-minute film in which three Marketwake humans — including Brooke MacLean in the most honest interview she has ever given — redefine what the last ten years actually were, and what the next ten years are for.</p>
+  <p>The film is not a retrospective. It is a public declaration of what Marketwake became by the time the rest of the world was paying attention to something else.</p>
+  <p>It is shot in the visual language of contemporary documentary — cinematic interview confessions, verité office footage, archival grain, patient cutting. No voiceover narration from the outside. No client logo reel. No agency-speak. Every voice in the film is a voice from inside the room.</p>
+
+  <div class="pull center">
+    Most agency films are made for the agency. This one is for the client who has been quietly disappointed by three agencies in a row and no longer believes any of them care.
+  </div>
+
+  <h3>References</h3>
+  <ul>
+    <li><em>Full Swing</em> (Netflix) — structural backbone and interview language</li>
+    <li><em>The Last Dance</em> — archival treatment and intimate interview framing</li>
+    <li><em>Abstract: The Art of Design</em> — confidence in silence</li>
+    <li>Apple's anniversary films — craft-first emotional restraint</li>
+  </ul>
+
+  <h3>Tone</h3>
+  <ul>
+    <li>Observational, not promotional. Nothing in the film says Marketwake is great. The film makes you decide.</li>
+    <li>Warm, not glossy. Practical lighting. Real rooms.</li>
+    <li>Patient. Silence is a tool. One central shot holds without a cut for more than thirty seconds.</li>
+    <li>Confident. Ten years earns a swagger — but the swagger is quiet.</li>
+  </ul>
+</section>
+
+<div class="rule"></div>
+
+<!-- STRUCTURE -->
+<section class="reveal">
+  <div class="chapter-label">Structure</div>
+  <h2>Cold open. Four chapters. Close.</h2>
+  <p class="lead">Total runtime: approximately five minutes.</p>
+
+  <h3>Cold Open · 0:00–0:30</h3>
+  <p>The Marketwake office at night. Handheld. No names. No music until the title punches in. The posture is set: this film will show you, not tell you.</p>
+
+  <h3>Chapter 01 · THE BOAT · 0:30–1:45</h3>
+  <p>Brooke MacLean in interview, intercut with archival footage from 2016 and the earliest years of the company. The origin story — followed by the single moment the whole rest of the film is built around.</p>
+
+  <h3>Chapter 02 · THE HIVE · 1:45–2:45</h3>
+  <p>Two additional Marketwake voices introduced. Verité office footage. The culture of the house — delivered by the people inside it, in their own words.</p>
+
+  <h3>Chapter 03 · THE WORK · 2:45–3:30</h3>
+  <p>Proof of life. Actual client work mid-creation. Milestone cards earned by the pacing. Closes with Brooke's quietest line of the film.</p>
+
+  <h3>Chapter 04 · JUST ONE · 3:30–4:40</h3>
+  <p>Brooke's declarative register. Three manifesto lines, spaced by the other voices echoing them in their own language. Builds to the film's emotional landing.</p>
+
+  <h3>Close · 4:40–5:15</h3>
+  <p>Office exterior at dusk. Saint-Exupéry. Title card. Optional post-credit beat — two seconds of the team laughing, cut to black mid-laugh.</p>
+</section>
+
+<div class="rule"></div>
+
+<!-- CAST -->
+<section class="reveal">
+  <div class="chapter-label">The Cast</div>
+  <h2>Three voices. One room.</h2>
+
+  <h3>Brooke MacLean  ·  Founder &amp; CEO  ·  Ten Years</h3>
+  <p>The spine of the film. Carries the origin story, the central admission moment, and the manifesto register at the close. Tightest interview framing. Warmest lighting. Most patient cuts.</p>
+
+  <h3>Character 2  ·  Senior Creative  ·  Seven Years</h3>
+  <p>The middle-era voice. Represents craft and the internal culture of pushing work until it is dangerous. In Chapter 4, gets one line that echoes Brooke's manifesto — but in their own language, not hers.</p>
+
+  <h3>Character 3  ·  The Newer One  ·  Two to Four Years</h3>
+  <p>The next decade. Represents forward motion. In Chapter 4, gets one line that echoes the film's final emotional landing — again, in their own words.</p>
+
+  <h3>Optional Fourth  ·  A Client</h3>
+  <p>Eight seconds maximum. A long-tenured client confirming what the film has already shown. Used only if the line is perfect. Cut if it is merely good.</p>
+</section>
+
+<!-- CHAPTER HERO: THE MOMENT -->
+<div class="chapter-hero">
+  <div class="num">The Moment</div>
+  <h2>THE ADMISSION</h2>
 </div>
+
+<section class="reveal">
+  <p class="lead">A single unbroken shot in Chapter 1. Approximately thirty to forty seconds. The camera does not move. No cutaways. No music. Just Brooke, and a question, and the silence around her answer.</p>
+
+  <p>Every film that changes a viewer's life contains a moment the subject was not supposed to give. Jordan admitting the loneliness. Tiger in a hospital bed. Jony Ive admitting failure. Those moments are not decoration — they are the structural foundation that makes everything else the film claims feel true.</p>
+
+  <p>For WAKE to land as a legacy artifact rather than a brand film, Brooke needs to say something on camera she has never said to the team. That is what this moment is for.</p>
+
+  <div class="pull">If you could go back to 2016 Brooke — not the pep-talk version — what would you actually tell her?</div>
+
+  <p>The question works because it bypasses the founder's usual defenses. It does not ask about hardship directly, which produces rehearsed answers. It asks her to imagine speaking to a version of herself who did not yet know what she knows now — which is emotionally loaded in a way that is difficult to fully armor against.</p>
+
+  <h3>How it gets shot</h3>
+  <ul>
+    <li>Locked-off camera. A-cam only. No B-roll pre-shot for cutaway cover.</li>
+    <li>The interviewer is off-camera, speaks softly, asks the question, and then says nothing else. No follow-ups until she is done.</li>
+    <li>If she does not answer in the first fifteen seconds, we wait. The silence <em>is</em> the shot.</li>
+    <li>After she answers, we hold another five seconds on her face before cutting. The reaction is part of the line.</li>
+  </ul>
+
+  <h3>How it gets cut</h3>
+  <ul>
+    <li>We do not cover the emotional beats with b-roll. Staying on her face is the point.</li>
+    <li>No music underneath. Silence carries it.</li>
+    <li>The cut out is to an archival image — a photo of the early team, or the first office — not to another interview.</li>
+  </ul>
+</section>
+
+<div class="rule"></div>
+
+<!-- SCRIPT -->
+<section class="wide reveal">
+  <div class="chapter-label">The Script</div>
+  <h2>Shot-by-shot.</h2>
+  <p>Dialogue is indicative. The Chapter 1 admission and the Chapter 4 manifesto are the two most script-sensitive moments in the film. Everything else is captured in the interview room and shaped in the edit.</p>
+
+  <div class="script">
+    <table>
+      <thead>
+        <tr><th>Time</th><th>Visual / Footage</th><th>Audio / Dialogue</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time">0:00–0:20</td>
+          <td class="visual">Cold open. Night. Handheld verité. The Marketwake office window lit from inside. Cut inside: a designer's face lit only by a monitor. A strategist at a whiteboard. A phone vibrating face-down. A coffee cup. Someone passing through frame on a call. No names, no titles.</td>
+          <td class="audio"><em>Diegetic:</em> HVAC hum, keyboards, distant laugh down the hall. Audio bleed from the phone call, barely audible: “…yeah. We're going to pull this off.”</td>
+        </tr>
+        <tr>
+          <td class="time">0:20–0:30</td>
+          <td class="visual">Cut to black. White sans-serif title punches in: <strong>WAKE / A MARKETWAKE FILM</strong>. Hold four seconds.</td>
+          <td class="audio">Music in. A single low synth tone, sustained. One piano chord underneath.</td>
+        </tr>
+        <tr>
+          <td class="time">0:30–0:40</td>
+          <td class="visual">Chapter card: <strong>CHAPTER 01 · THE BOAT</strong>. Hold two seconds. Cut to Brooke in interview setup. Warm practical lights. Shallow 50mm. She is mid-thought when we land.</td>
+          <td class="audio">Room tone. Music barely there.</td>
+        </tr>
+        <tr>
+          <td class="time">0:40–1:05</td>
+          <td class="visual">Brooke on camera, intercut with archival: a 2016 team photo, early logo sketches, a whiteboard with the Marketwake name being drawn, a handwritten note, a younger Brooke pointing at something off-frame. Lower-third punches in briefly: <strong>BROOKE MACLEAN / FOUNDER &amp; CEO / TEN YEARS</strong>.</td>
+          <td class="audio"><strong>Brooke (interview):</strong> “We were four people in a borrowed room. I had a laptop and a domain name and this idea that if you put the right people in the right room, what leaves that room would be larger than any of us.” (beat) “That's a nice story to tell now. It's not what I was thinking at the time.”</td>
+        </tr>
+        <tr>
+          <td class="time">1:05–1:35</td>
+          <td class="visual">We stay on Brooke. No cuts. No cutaways. The question, in the interviewer's voice, is heard softly, almost inaudible: <em>“If you could go back to 2016 Brooke — not the pep-talk version. What would you actually tell her?”</em></td>
+          <td class="audio"><strong>Brooke (interview — the admission):</strong> [Real answer, captured live. Indicative target:] “I'd tell her it's going to take longer than she thinks. And that there's going to be a year where she's going to sit in her car in the parking lot and genuinely not know if she can do this for one more day.” (beat) “I'd tell her the thing that keeps you going isn't belief in yourself. It's the people who showed up when you couldn't.” (silence)</td>
+        </tr>
+        <tr>
+          <td class="time">1:35–1:45</td>
+          <td class="visual">Cut to archival: a photo of the early team around a meal, or laughing. Held longer than comfortable.</td>
+          <td class="audio">Silence. Music re-enters soft, minor key.</td>
+        </tr>
+        <tr>
+          <td class="time">1:45–1:55</td>
+          <td class="visual">Chapter card: <strong>CHAPTER 02 · THE HIVE</strong>. Cut to verité — a real workday. A morning standup. A design review on a wall screen. A client call in a glass room. Keyboards, coffee, a whiteboard erased and restarted.</td>
+          <td class="audio">Real office audio. A voice: “No — back up. What's the actual story here?” Music: a warm pad underneath.</td>
+        </tr>
+        <tr>
+          <td class="time">1:55–2:20</td>
+          <td class="visual">Character 2 in interview, same visual language as Brooke. Lower-third: <strong>[NAME] / CREATIVE DIRECTOR / SEVEN YEARS</strong>. Intercut with them at work — hands on a wacom, a presentation, a late-night desk moment.</td>
+          <td class="audio"><strong>Character 2 (interview):</strong> “The first time I pitched work here, Brooke told me the idea was good — and then asked what the version of it that scared me looked like. I'd been at three other agencies. Nobody had ever asked me that.” (cut to them working) “That's the whole place. You bring your best idea. Someone in the room pushes it until it's dangerous.”</td>
+        </tr>
+        <tr>
+          <td class="time">2:20–2:45</td>
+          <td class="visual">Character 3 in interview. Lower-third: <strong>[NAME] / HEAD OF PERFORMANCE / THREE YEARS</strong>. Intercut with a mixed-discipline meeting — designers and strategists at the same table.</td>
+          <td class="audio"><strong>Character 3 (interview):</strong> “Every agency I interviewed at had a paid team and a creative team and they didn't really talk. Here if you try to do that the work just falls apart.” (beat) “I've been here three years. I've run pitches I wasn't qualified to run. I've been in rooms I wasn't supposed to be in. That's what I came here for.”</td>
+        </tr>
+        <tr>
+          <td class="time">2:45–2:55</td>
+          <td class="visual">Chapter card: <strong>CHAPTER 03 · THE WORK</strong>. Hard cut. Montage: actual Marketwake work mid-creation. Yamaha “Women Run the Water” on a grading monitor. A Junk.com brand review. A Retention.com deck being iterated. Cutting Edge Firewood on a product set. Fast cuts.</td>
+          <td class="audio">First real beat drop. Contemporary cinematic — Khruangbin / Bonobo territory.</td>
+        </tr>
+        <tr>
+          <td class="time">2:55–3:15</td>
+          <td class="visual">Work montage continues. Milestone cards punch in between shots, on black, single line each, on beat: <strong>FIVE YEARS ON THE INC. 5000 / FOUR YEARS A BEST PLACE TO WORK / 43 CLIENTS / TEN YEARS</strong>.</td>
+          <td class="audio"><strong>Brooke (VO over montage):</strong> “Five years on the Inc. 5000. Four years a Best Place to Work. Forty-three clients.” (beat, music drops) “People ask me what I'm proudest of. It's none of those.”</td>
+        </tr>
+        <tr>
+          <td class="time">3:15–3:30</td>
+          <td class="visual">Cut to Brooke interview. She's looking slightly off-lens.</td>
+          <td class="audio"><strong>Brooke (interview):</strong> “I'm proudest of the fact that a designer who started here three years ago just walked into a Fortune 500 boardroom and ran the room.” (beat) “That's the wake.”</td>
+        </tr>
+        <tr>
+          <td class="time">3:30–3:40</td>
+          <td class="visual">Chapter card: <strong>CHAPTER 04 · JUST ONE</strong>. Cut to Brooke — tighter than any previous frame. Slight warmer lighting shift. She's leaning in.</td>
+          <td class="audio">Music drops out. Silence.</td>
+        </tr>
+        <tr>
+          <td class="time">3:40–3:55</td>
+          <td class="visual">Brooke tight. Direct. Declarative. The only place in the film she speaks in manifesto register.</td>
+          <td class="audio"><strong>Brooke:</strong> “A house is more than a brand. It's a universe with its own style. Its own secrets. Its own soul.” (beat)</td>
+        </tr>
+        <tr>
+          <td class="time">3:55–4:05</td>
+          <td class="visual">Cut to Character 2 — brief return. In their own words.</td>
+          <td class="audio"><strong>Character 2:</strong> “We don't grow by hiring more people. We grow by the people we already have getting sharper at each other.”</td>
+        </tr>
+        <tr>
+          <td class="time">4:05–4:15</td>
+          <td class="visual">Back to Brooke, same tight frame.</td>
+          <td class="audio"><strong>Brooke:</strong> “We don't become a house by adding people. We become a house by multiplying them.” (beat)</td>
+        </tr>
+        <tr>
+          <td class="time">4:15–4:25</td>
+          <td class="visual">Cut to Character 3. Their version.</td>
+          <td class="audio"><strong>Character 3:</strong> “There's a thing people here say. One campaign. One idea. One moment.” (beat) “That's the whole game.”</td>
+        </tr>
+        <tr>
+          <td class="time">4:25–4:40</td>
+          <td class="visual">Back to Brooke. Widest Brooke frame of the film — pull back slightly. She is not performing.</td>
+          <td class="audio"><strong>Brooke:</strong> “Marketwake isn't a hundred clients away.” (beat) “We're not a hundred million dollars away.” (beat) “We are just one away.”</td>
+        </tr>
+        <tr>
+          <td class="time">4:40–4:55</td>
+          <td class="visual">Hard cut. Wide exterior of the Marketwake office at dusk. Lights on. One figure in the window. The camera pulls back slowly — letting the building become smaller. The camera is leaving.</td>
+          <td class="audio"><strong>Brooke (VO, softer):</strong> “If you want to build a ship, don't send your people to gather wood.” (beat) “Teach them to long for the immensity of the sea.”</td>
+        </tr>
+        <tr>
+          <td class="time">4:55–5:05</td>
+          <td class="visual">Title fades up: <strong>MARKETWAKE / 2016 →</strong>. Just an arrow. No period. No tagline. Hold three seconds.</td>
+          <td class="audio">Single note resolves. Silence.</td>
+        </tr>
+        <tr>
+          <td class="time">5:05–5:15</td>
+          <td class="visual">Optional post-credit beat: a two-second verité clip of the team laughing together. Cuts to black mid-laugh. <strong>marketwake.com</strong> in the smallest possible type in the corner.</td>
+          <td class="audio">Office ambience fades. End.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- PRE-INTERVIEW -->
+<section class="reveal">
+  <div class="chapter-label">Preparation</div>
+  <h2>The pre-interview conversation.</h2>
+  <p class="lead">An operational document for the person who will prepare Brooke to be honest in the real interview. Its job is not to rehearse her. Its job is to loosen her.</p>
+
+  <div class="two-col">
+    <div>
+      <h4>Who runs it</h4>
+      <p>The director, or a trusted Marketwake person who is not in Brooke's normal daily rhythm. Not her assistant. Not her second-in-command. Someone she can be tired around.</p>
+    </div>
+    <div>
+      <h4>When and how</h4>
+      <p>Four to seven days before the shoot. Sixty to ninety minutes. Coffee or a walk — not a conference room. Not recorded. Not a pep talk. Off the record.</p>
+    </div>
+  </div>
+
+  <h3>Phase 1 · Warm-up (10–15 minutes)</h3>
+  <p class="serif">“Tell me about this week at work. What's taken up the most headspace?”</p>
+  <p class="serif">“When you picture the office in your head right now — whose face do you see first?”</p>
+  <p>The goal is to get her out of founder-speak and into specific, small, recent detail. Notice what she lights up about. Follow it.</p>
+
+  <h3>Phase 2 · Origin (15–20 minutes)</h3>
+  <p class="serif">“What was the physical space where Marketwake started — the actual room, the lighting, the chairs?”</p>
+  <p class="serif">“Who was in that room with you?”</p>
+  <p class="serif">“What's one stupid thing you bought or did in year one that you still think about?”</p>
+  <p>Anchor her in embodied memory, not strategic narrative. Embodied memory produces the best interview answers.</p>
+
+  <h3>Phase 3 · The middle years (20–25 minutes)</h3>
+  <p class="serif">“What year was hardest? Don't tell me why yet — just tell me the year.”</p>
+  <p class="serif">“What was happening that year that the team didn't know?”</p>
+  <p class="serif">“Was there a moment you thought about stopping?”</p>
+  <p class="serif">“Who did you call? Or did you not call anyone?”</p>
+  <p>This is the zone the admission comes from. Not today — but her subconscious will work on it for the next four days. That is the point.</p>
+
+  <h3>Phase 4 · The self-address (10–15 minutes)</h3>
+  <p class="serif">“If you could walk up to 2016 Brooke right now and put a hand on her shoulder, what would you tell her?”</p>
+  <p class="serif">“Not the version you'd say in a keynote. The version you'd say if it was just the two of you.”</p>
+  <p>If she goes to pep-talk, gently: <em>“Okay — but what's the thing you wouldn't say on stage?”</em></p>
+  <p>The most important phase. The last thing you do. She does not need to land on her real answer today. She needs to let the question get under her skin.</p>
+
+  <div class="callout">
+    <h4>How the conversation ends</h4>
+    <p>When the Phase 4 questions are out, stop. Do not process. Do not summarize. Do not tell her the questions she will be asked on camera. Change the subject. Let her leave without a homework assignment.</p>
+    <p>The only thing you say on the way out: <em>“That question about 2016 Brooke — I'm going to ask it again on camera. You don't need an answer ready. Just let it sit.”</em></p>
+  </div>
+
+  <h3>A note to the person running this</h3>
+  <p>Brooke is a skilled communicator. Her instinct is to say things well. For this one conversation, your job is to invite her to say things badly — in fragments, with pauses, without the sentence landing. That is where the real material is. If at any point she says <em>“I don't know how to say this”</em> — stop. That is the moment. Write it down exactly. Ask her to say it the same way on camera.</p>
+</section>
+
+<div class="rule"></div>
+
+<!-- PRODUCTION -->
+<section class="reveal">
+  <div class="chapter-label">Production</div>
+  <h2>The look.</h2>
+
+  <h3>The interview room</h3>
+  <p>One designed space reused for all three subjects. Dark walls or a controllable backdrop. A warm practical lamp in frame. The subject's chair. An off-camera soft light. This can be a dressed conference room, a rented photo studio, or a corner of the office with a controlled window. The reuse is non-negotiable — matching visual language is what makes the chapters feel like a series.</p>
+
+  <h3>Camera and lens</h3>
+  <ul>
+    <li>Cinema camera — Sony FX6, FX3, or Red Komodo. Not a mirrorless.</li>
+    <li>A-camera tight (50mm or 85mm) on the subject's face. B-camera wide for cutaway inserts.</li>
+    <li>Shallow depth of field at f/2 or f/2.8. Background falls off.</li>
+    <li>Interview frames locked off. Verité footage handheld. The distinction matters.</li>
+  </ul>
+
+  <h3>Lighting</h3>
+  <ul>
+    <li>Single-source key — Litemat or Aputure softbox — 45° off-axis, 3200K.</li>
+    <li>Practical lamp in frame for depth.</li>
+    <li>Negative fill on the shadow side. Nothing is fully filled in.</li>
+    <li>Optional subtle haze.</li>
+  </ul>
+
+  <h3>Audio</h3>
+  <ul>
+    <li>Wireless lav and boom backup on every subject.</li>
+    <li>Room mic for ambient capture during interviews.</li>
+    <li>Every interview records a minimum of thirty minutes, even if thirty seconds is used.</li>
+  </ul>
+
+  <h3>Wardrobe</h3>
+  <ul>
+    <li>Each subject wears their own clothes. No logos. No stylist overlay.</li>
+    <li>Pre-brief: <em>“Wear what makes you feel like yourself at work.”</em></li>
+  </ul>
+</section>
+
+<div class="rule"></div>
+
+<!-- ARCHIVAL -->
+<section class="reveal">
+  <div class="chapter-label">Archival</div>
+  <h2>The footage the film depends on.</h2>
+  <p>The single biggest production risk is weak archival. The team-wide hunt begins in Week 1.</p>
+
+  <h3>Priority list</h3>
+  <ul>
+    <li>Earliest known photo of the Marketwake team — founding-era, 2016</li>
+    <li>Early logo sketches, naming documents, year-one whiteboards</li>
+    <li>Brooke in early context, ideally with fewer than five people around her</li>
+    <li>Handwritten notes, rough pitch materials, the first workspace</li>
+    <li>Press clippings and award announcements — Inc. 5000, Best Places to Work</li>
+  </ul>
+
+  <h3>Where to find it</h3>
+  <ul>
+    <li>Brooke's personal phone and cloud — usually the best source for founding-era photos</li>
+    <li>Original team members via a team-wide Slack request</li>
+    <li>Archived Google Drive and Dropbox folders from pre-2020</li>
+    <li>Wayback Machine captures of marketwake.com from 2016–2018</li>
+    <li>Investor and award-submission decks with early history references</li>
+  </ul>
+
+  <h3>Work to feature</h3>
+  <ul>
+    <li>Yamaha — <em>Women Run the Water</em></li>
+    <li>Junk.com brand identity</li>
+    <li>Retention.com rebrand</li>
+    <li>Cutting Edge Firewood</li>
+    <li>Crunchafi (formerly LeaseCrunch)</li>
+  </ul>
+</section>
+
+<div class="rule"></div>
+
+<!-- MUSIC -->
+<section class="reveal">
+  <div class="chapter-label">Sound</div>
+  <h2>Music, design, type.</h2>
+
+  <h3>Score direction</h3>
+  <p>One anchor track that evolves across the runtime — not score-for-every-beat. Licensed via Musicbed or Marmoset. Custom score only if budget allows.</p>
+
+  <h3>References</h3>
+  <ul>
+    <li>Khruangbin — <em>Pelota</em>, <em>White Gloves</em></li>
+    <li>Bonobo — <em>Kerala</em>, <em>Cirrus</em></li>
+    <li>Labrinth — score work from <em>Euphoria</em></li>
+    <li>Ólafur Arnalds — <em>re:member</em></li>
+    <li>Hans Zimmer — <em>Time</em></li>
+  </ul>
+
+  <h3>Sound design rules</h3>
+  <ul>
+    <li>Cold open: silence and diegetic office sound only.</li>
+    <li>Chapter transitions: hard cut to black, a quarter-second of silence, then title card and a single low hit.</li>
+    <li>Verité sections: real audio bleed, mixed low but always present.</li>
+    <li>Interview sections: faint ambient room tone under every line.</li>
+    <li>The admission: no music. Silence carries it.</li>
+    <li>The manifesto: no music during Brooke's three declarative lines. Music swells only on <em>“just one away.”</em></li>
+    <li>Close: music resolves, office ambience fades, one full second of black before the end card.</li>
+  </ul>
+
+  <h3>Typography</h3>
+  <ul>
+    <li>Chapter cards: single words, white sans on black, 80pt and up, generous tracking.</li>
+    <li>Lower-thirds: small, bottom-left. <strong>NAME / TITLE / TENURE</strong>.</li>
+    <li>Final card: <strong>MARKETWAKE / 2016 →</strong>. Nothing else.</li>
+    <li>Typeface: Marketwake brand display, or Söhne / Neue Haas Grotesk / GT America.</li>
+  </ul>
+</section>
+
+<div class="rule"></div>
+
+<!-- VERTICAL -->
+<section class="reveal">
+  <div class="chapter-label">Vertical</div>
+  <h2>The 9×16 cutdown.</h2>
+  <p class="lead">Seventy-five seconds for Instagram, rebuilt from the same material. Not a crop.</p>
+
+  <h3>Hook · 0:00–0:05</h3>
+  <p>Open on Brooke, tight vertical, delivering the most arresting fragment from the admission. Captions burned in. The face fills the top third of the frame.</p>
+
+  <h3>Reveal · 0:05–0:20</h3>
+  <p>Title card. Verité montage, six to seven shots. Music enters.</p>
+
+  <h3>Characters · 0:20–0:45</h3>
+  <p>Character 2 line. Verité beat. Character 3 line. Verité beat. Brief lower-thirds.</p>
+
+  <h3>Work and milestones · 0:45–1:00</h3>
+  <p>Rapid montage with text overlays: <strong>FIVE YEARS INC. 5000 / FOUR YEARS BEST PLACES TO WORK / 43 CLIENTS / TEN YEARS</strong>.</p>
+
+  <h3>Payoff · 1:00–1:15</h3>
+  <p>Brooke tight — <em>“we are one away.”</em> Team wide shot. End card: <strong>MARKETWAKE / 2016 →</strong>. CTA: <em>watch the film at marketwake.com.</em></p>
+
+  <h4>Cutdown rules</h4>
+  <ul>
+    <li>Brooke's face in the top third. Reels-safe.</li>
+    <li>Captions burned in on every line.</li>
+    <li>Skip the full admission and the Saint-Exupéry close. Save them for the hero.</li>
+    <li>Explicit CTA on the end card.</li>
+  </ul>
+</section>
+
+<div class="rule"></div>
+
+<!-- TIMELINE -->
+<section class="wide reveal">
+  <div class="chapter-label">Timeline</div>
+  <h2>Ten weeks to launch.</h2>
+
+  <div class="timeline">
+    <div class="row">
+      <div class="week">Week 1</div>
+      <div>
+        <ul>
+          <li>Treatment approved; leadership sign-off</li>
+          <li>Characters 2 and 3 cast</li>
+          <li>Archival hunt launches in team Slack</li>
+          <li>DP hired; interview room scouted</li>
+          <li>Music direction locked</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="week">Weeks 2–3</div>
+      <div>
+        <ul>
+          <li>Pre-interview conversation with Brooke — four to seven days before shoot</li>
+          <li>Pre-interviews with Characters 2 and 3</li>
+          <li>Interview question banks finalized</li>
+          <li>Interview room dressed and tested</li>
+          <li>Music license paths scoped</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="week">Weeks 4–5  ·  Production</div>
+      <div>
+        <ul>
+          <li>Interview Day 1: Brooke and Character 2</li>
+          <li>Interview Day 2: Character 3 and optional client</li>
+          <li>Verité Day: full day in the office. Team given 24 hours' notice, not two weeks.</li>
+          <li>Work Footage Day: on-set capture of actual client work in progress</li>
+          <li>Exterior Day: dusk office pull-back</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="week">Weeks 6–7  ·  Edit</div>
+      <div>
+        <ul>
+          <li>Assembly cut</li>
+          <li>First cut — internal review</li>
+          <li>Second cut — narrative lock</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="week">Week 8  ·  Finish</div>
+      <div>
+        <ul>
+          <li>Color grade</li>
+          <li>Sound design and mix</li>
+          <li>Music license cleared</li>
+          <li>Title and motion graphics</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="week">Week 9</div>
+      <div>
+        <ul>
+          <li>Final mix</li>
+          <li>9×16 cutdown built from locked hero</li>
+          <li>Caption burn-in on vertical</li>
+          <li>Final approval</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="week">Week 10  ·  Launch</div>
+      <div>
+        <ul>
+          <li>Internal all-hands premiere</li>
+          <li>marketwake.com homepage hero</li>
+          <li>Instagram Reel and LinkedIn</li>
+          <li>Optional teaser clips, six and fifteen seconds, in the five days prior</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- RISKS -->
+<section class="reveal">
+  <div class="chapter-label">Risks</div>
+  <h2>What could break this — and what we do about it.</h2>
+
+  <h3>The primary risk</h3>
+  <p>The admission does not happen. Brooke stays in founder mode and Chapter 1 does not have its beating heart. The mitigation is the pre-interview conversation. The accepted fallback: shoot the rest of the film as-is, redesign Chapter 1 as a pure archival-and-origin story. The film still exists — just at a lower ceiling.</p>
+
+  <h3>Secondary risks</h3>
+  <ul>
+    <li>Characters 2 and 3 cannot speak naturally on camera. Pre-interview them the week before. If still stiff, recast.</li>
+    <li>Archival is weak. Kill aggressively in Week 1 via team Slack. The retrospective collapses without it.</li>
+    <li>Verité feels staged. Give the team 24 hours' notice, not two weeks.</li>
+    <li>Runtime creeps past 5:30. Hard cut at 5:15 in the edit room, even if it hurts.</li>
+    <li>Music licensing is the most common final-week delay. Clear it in Week 2, not Week 8.</li>
+  </ul>
+
+  <h3>Guardrails</h3>
+  <ul>
+    <li>No stock footage. Period.</li>
+    <li>No lens-to-camera reads. All interview framing is observational.</li>
+    <li>No client logo reel. Work on screen is the making, not the hero shot.</li>
+    <li>No revenue figures. No headcount. The thesis is that houses are not measured that way.</li>
+    <li>No agency-speak. No <em>synergy</em>, no <em>partner</em>, no <em>thought leadership</em>, no <em>impact</em>.</li>
+    <li>The admission shot is not covered with b-roll. If it is shot, we commit to holding.</li>
+  </ul>
+</section>
+
+<div class="rule"></div>
+
+<!-- WHAT IT'S FOR -->
+<section class="reveal">
+  <div class="chapter-label">A Note</div>
+  <h2>What this film is for.</h2>
+
+  <p>Most agency anniversary films are made for the agency. They play at the holiday party. They get pinned to the homepage. They live on an employee onboarding playlist. They never actually change anyone's mind about anything.</p>
+
+  <p>This film is built differently. It is not for Marketwake.</p>
+
+  <p>It is for the client who has been quietly disappointed by three agencies in a row and no longer believes any of them care. It is for the senior creative at another firm who has been thinking about leaving but is not sure where to go. It is for the intern who just got hired and is trying to understand why she picked this place over the others. It is for the version of Brooke who, four years from now, will need to remember why she built it.</p>
+
+  <p>The measure of whether this film worked will not be Instagram views. It will be the number of people who, after watching, pick up the phone.</p>
+
+  <div class="pull center">
+    Make something true. The rest takes care of itself.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="mark">MARKETWAKE</div>
+  <div class="year">2016 →</div>
+  <div class="credit">WAKE  ·  A Marketwake Film  ·  Ten-Year Anniversary Proposal</div>
+</footer>
 
 <script>
-// ============================================
-// DATABASE (IndexedDB wrapper)
-// ============================================
-const DB_NAME = 'StudioWorkspace';
-const DB_VERSION = 1;
-const STORES = ['tasks', 'notes', 'storyboards', 'storyboard_frames', 'binders'];
-
-function openDB() {
-  return new Promise((resolve, reject) => {
-    const req = indexedDB.open(DB_NAME, DB_VERSION);
-    req.onupgradeneeded = (e) => {
-      const db = e.target.result;
-      STORES.forEach(s => {
-        if (!db.objectStoreNames.contains(s)) {
-          db.createObjectStore(s, { keyPath: 'id' });
-        }
-      });
-    };
-    req.onsuccess = (e) => resolve(e.target.result);
-    req.onerror = (e) => reject(e.target.error);
+  // Progress bar
+  const progress = document.getElementById('progress');
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    progress.style.width = (scrolled * 100) + '%';
+    if (h.scrollTop > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
   });
-}
 
-async function dbGetAll(store) {
-  const db = await openDB();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction(store, 'readonly');
-    const req = tx.objectStore(store).getAll();
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
-  });
-}
-
-async function dbPut(store, item) {
-  const db = await openDB();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction(store, 'readwrite');
-    tx.objectStore(store).put(item);
-    tx.oncomplete = () => resolve();
-    tx.onerror = () => reject(tx.error);
-  });
-}
-
-async function dbDelete(store, id) {
-  const db = await openDB();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction(store, 'readwrite');
-    tx.objectStore(store).delete(id);
-    tx.oncomplete = () => resolve();
-    tx.onerror = () => reject(tx.error);
-  });
-}
-
-function uid() {
-  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
-}
-
-function formatDate(ts) {
-  if (!ts) return '';
-  const d = new Date(ts);
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-}
-
-// ============================================
-// NAVIGATION
-// ============================================
-function navigate(view) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.getElementById('view-' + view).classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.querySelector(`.nav-item[data-view="${view}"]`).classList.add('active');
-
-  // Close mobile sidebar
-  document.getElementById('sidebar').classList.remove('open');
-
-  // Render the view
-  if (view === 'dashboard') renderDashboard();
-  else if (view === 'projects') renderProjects();
-  else if (view === 'notes') renderNotes();
-  else if (view === 'storyboards') renderStoryboards();
-  else if (view === 'binders') renderBinders();
-}
-
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-}
-
-// ============================================
-// MODAL HELPERS
-// ============================================
-function openModal(html) {
-  document.getElementById('modal').innerHTML = html;
-  document.getElementById('modal-overlay').classList.add('open');
-}
-
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-}
-
-function closeModalOverlay(e) {
-  if (e.target === e.currentTarget) closeModal();
-}
-
-// ============================================
-// DASHBOARD
-// ============================================
-async function renderDashboard() {
-  const tasks = await dbGetAll('tasks');
-  const notes = await dbGetAll('notes');
-  const storyboards = await dbGetAll('storyboards');
-  const binders = await dbGetAll('binders');
-
-  const inProgress = tasks.filter(t => t.status === 'in-progress').length;
-  const statsEl = document.getElementById('dash-stats');
-  statsEl.innerHTML = `
-    <div class="dash-stat"><div class="dash-stat-label">Tasks</div><div class="dash-stat-value">${tasks.length}</div></div>
-    <div class="dash-stat"><div class="dash-stat-label">In Progress</div><div class="dash-stat-value">${inProgress}</div></div>
-    <div class="dash-stat"><div class="dash-stat-label">Notes</div><div class="dash-stat-value">${notes.length}</div></div>
-    <div class="dash-stat"><div class="dash-stat-label">Storyboards</div><div class="dash-stat-value">${storyboards.length}</div></div>
-  `;
-
-  const recent = [...tasks, ...notes]
-    .sort((a, b) => (b.updatedAt || b.createdAt) - (a.updatedAt || a.createdAt))
-    .slice(0, 5);
-
-  if (recent.length === 0) {
-    document.getElementById('dash-recent').innerHTML = '<div class="empty-state"><div class="empty-state-icon">📭</div><h3>No activity yet</h3><p>Get started by creating a task, note, or storyboard.</p></div>';
-    return;
-  }
-
-  document.getElementById('dash-recent').innerHTML = `<div class="db-table">
-    <div class="db-header">
-      <div class="db-header-cell col-title">Title</div>
-      <div class="db-header-cell col-type">Type</div>
-      <div class="db-header-cell col-date">Updated</div>
-    </div>
-    ${recent.map(item => `
-      <div class="db-row" onclick="${item.status ? 'openEditTaskModal' : 'openNote'}('${item.id}')">
-        <div class="db-cell col-title"><span class="db-cell-title">${item.title || 'Untitled'}</span></div>
-        <div class="db-cell col-type">${item.status ? 'Task' : 'Note'}</div>
-        <div class="db-cell col-date">${formatDate(item.updatedAt || item.createdAt)}</div>
-      </div>
-    `).join('')}
-  </div>`;
-}
-
-const PRIORITY_TAGS = {
-  'high': 'tag-red',
-  'medium': 'tag-yellow',
-  'low': 'tag-green'
-};
-
-const STATUS_COLORS = {
-  'todo': '#e0e0e0',
-  'in-progress': '#2eaadc',
-  'done': '#4dab6f'
-};
-
-// ============================================
-// PROJECTS & TASKS
-// ============================================
-let currentProjectView = 'kanban';
-
-function setProjectView(view, btn) {
-  if (view === 'kanban') {
-    document.getElementById('projects-kanban').style.display = '';
-    document.getElementById('projects-table').style.display = 'none';
-  } else {
-    document.getElementById('projects-kanban').style.display = 'none';
-    document.getElementById('projects-table').style.display = '';
-  }
-  document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentProjectView = view;
-  renderProjects();
-}
-
-async function renderProjects() {
-  const tasks = await dbGetAll('tasks');
-
-  if (currentProjectView === 'kanban') {
-    const columns = ['todo', 'in-progress', 'done'];
-    const columnTitles = { 'todo': 'To Do', 'in-progress': 'In Progress', 'done': 'Done' };
-
-    document.getElementById('projects-kanban').innerHTML = `<div class="kanban">
-      ${columns.map(col => {
-        const colTasks = tasks.filter(t => t.status === col);
-        return `
-          <div class="kanban-column">
-            <div class="kanban-column-header">
-              <div>${columnTitles[col]}</div>
-              <div class="kanban-count">${colTasks.length}</div>
-            </div>
-            <div class="kanban-cards">
-              ${colTasks.map(t => `
-                <div class="kanban-card" draggable="true"
-                 ondragstart="dragStart(event, '${t.id}')"
-                 ondragover="dragOver(event)"
-                 ondrop="dropCard(event, '${col}', '${t.id}')"
-                 onmouseenter="this.classList.add('dragging')"
-                 onmouseleave="this.classList.remove('dragging')"
-                 onclick="openEditTaskModal('${t.id}')">
-              <div class="kanban-card-title">${esc(t.title)}</div>
-              <div class="kanban-card-meta">
-                <span class="tag ${PRIORITY_TAGS[t.priority] || 'tag-gray'}">${t.priority || 'low'}</span>
-                ${t.dueDate ? `<span>${formatDate(t.dueDate)}</span>` : ''}
-              </div>
-            </div>
-          `).join('')}
-              <div class="kanban-add" onclick="openTaskModal('${col}')">+ Add task</div>
-            </div>
-          </div>
-        `;
-      }).join('')}
-    </div>`;
-  } else {
-    document.getElementById('projects-table').innerHTML = `<div class="db-table">
-      <div class="db-header">
-        <div class="db-header-cell col-title">Task</div>
-        <div class="db-header-cell col-status">Status</div>
-        <div class="db-header-cell col-priority">Priority</div>
-        <div class="db-header-cell col-date">Due</div>
-      </div>
-      ${tasks.map(t => `
-        <div class="db-row" onclick="openEditTaskModal('${t.id}')">
-          <div class="db-cell col-title"><span class="db-cell-title">${esc(t.title)}</span></div>
-          <div class="db-cell col-status"><span class="tag tag-blue">${t.status || 'todo'}</span></div>
-          <div class="db-cell col-priority"><span class="tag ${PRIORITY_TAGS[t.priority] || 'tag-gray'}">${t.priority || 'low'}</span></div>
-          <div class="db-cell col-date">${formatDate(t.dueDate)}</div>
-        </div>
-      `).join('')}
-    </div>`;
-  }
-}
-
-function esc(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
-let draggedTaskId = null;
-let draggedCol = null;
-
-function dragStart(e, taskId) {
-  draggedTaskId = taskId;
-  e.target.classList.add('dragging');
-}
-
-function dragOver(e) {
-  e.preventDefault();
-}
-
-async function dropCard(e, col, taskId) {
-  e.preventDefault();
-  if (!draggedTaskId || draggedTaskId === taskId) return;
-
-  const tasks = await dbGetAll('tasks');
-  const task = tasks.find(t => t.id === draggedTaskId);
-  if (!task) return;
-
-  task.status = col;
-  task.updatedAt = Date.now();
-  await dbPut('tasks', task);
-  renderProjects();
-}
-
-let currentTaskId = null;
-
-async function openTaskModal(defaultStatus = 'todo') {
-  const btn = event?.target;
-  const statusFromBtn = btn?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
-  const status = statusFromBtn || defaultStatus;
-
-  openModal(`
-    <div class="modal-header">
-      <h2>New Task</h2>
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group"><label>Title</label><input id="task-title" placeholder="Task name"></div>
-      <div class="form-group"><label>Description</label><textarea id="task-desc" placeholder="Add details..."></textarea></div>
-      <div class="form-group"><label>Status</label><select id="task-status"><option value="todo">To Do</option><option value="in-progress">In Progress</option><option value="done">Done</option></select></div>
-      <div class="form-group"><label>Priority</label><select id="task-priority"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></div>
-      <div class="form-group"><label>Due Date</label><input type="date" id="task-due"></div>
-      <div class="modal-actions">
-        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveTask()">Create Task</button></div>
-    </div>
-  `);
-  document.getElementById('task-title').focus();
-}
-
-async function saveTask(existingId) {
-  const title = document.getElementById('task-title').value.trim();
-  if (!title) return;
-  const task = {
-    id: existingId || uid(),
-    title,
-    description: document.getElementById('task-desc').value,
-    status: document.getElementById('task-status').value,move('dragging')"
-                 onclick="openEditTaskModal('${t.id}')">
-              <div class="kanban-card-title">${esc(t.title)}</div>
-              <div class="kanban-card-meta">
-                <span class="tag ${PRIORITY_TAGS[t.priority] || 'tag-gray'}">${t.priority || 'low'}</span>
-                ${t.dueDate ? `<span>${formatDate(t.dueDate)}</span>` : ''}
-              </div>
-            </div>
-          `).join('')}
-        </div>
-        <div class="kanban-add" onclick="openTaskModal('${status}')">+ Add task</div>
-      </div>
-    `;
-  }).join('');
-  // Wrap in kanban container
-  el.innerHTML = `<div class="kanban">${el.innerHTML}</div>`;
-}
-
-function renderTable(tasks) {
-  const el = document.getElementById('projects-table');
-  if (tasks.length === 0) {
-    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">◆</div><h3>No tasks yet</h3><p>Add your first task to get started.</p></div>`;
-    return;
-  }
-  tasks.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-  el.innerHTML = `
-    <div class="db-table">
-      <div class="db-header">
-        <div class="db-header-cell col-title">Title</div>
-        <div class="db-header-cell col-status">Status</div>
-        <div class="db-header-cell col-priority">Priority</div>
-        <div class="db-header-cell col-date">Due Date</div>
-        <div class="db-header-cell col-actions"></div>
-      </div>
-      ${tasks.map(t => `
-        <div class="db-row" onclick="openEditTaskModal('${t.id}')">
-          <div class="db-cell col-title db-cell-title">${esc(t.title)}</div>
-          <div class="db-cell col-status"><span class="tag tag-blue">${STATUS_LABELS[t.status] || t.status}</span></div>
-          <div class="db-cell col-priority"><span class="tag ${PRIORITY_TAGS[t.priority] || 'tag-gray'}">${t.priority || 'low'}</span></div>
-          <div class="db-cell col-date">${t.dueDate ? formatDate(t.dueDate) : '—'}</div>
-          <div class="db-cell col-actions">
-            <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation(); deleteTask('${t.id}')">✕</button>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-}
-
-function setProjectView(view, btn) {
-  document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('projects-kanban').style.display = view === 'kanban' ? 'block' : 'none';
-  document.getElementById('projects-table').style.display = view === 'table' ? 'block' : 'none';
-}
-
-async function dropTask(e, newStatus) {
-  e.preventDefault();
-  e.currentTarget.classList.remove('drag-over');
-  const id = e.dataTransfer.getData('text/plain');
-  const tasks = await dbGetAll('tasks');
-  const task = tasks.find(t => t.id === id);
-  if (task) {
-    task.status = newStatus;
-    task.updatedAt = Date.now();
-    await dbPut('tasks', task);
-    renderProjects();
-  }
-}
-
-function openTaskModal(defaultStatus) {
-  openModal(`
-    <div class="modal-header"><h2>New Task</h2><button class="modal-close" onclick="closeModal()">×</button></div>
-    <div class="modal-body">
-      <div class="form-group"><label>Title</label><input id="task-title" placeholder="What needs to happen?"></div>
-      <div class="form-group"><label>Description</label><textarea id="task-desc" placeholder="Details, context, links..."></textarea></div>
-      <div class="form-group"><label>Status</label>
-        <select id="task-status"><option value="to-do">To Do</option><option value="in-progress">In Progress</option><option value="done">Done</option></select>
-      </div>
-      <div class="form-group"><label>Priority</label>
-        <select id="task-priority"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
-      </div>
-      <div class="form-group"><label>Due Date</label><input id="task-due" type="date"></div>
-      <div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveTask()">Create Task</button></div>
-    </div>
-  `);
-  document.getElementById('task-title').focus();
-}
-
-async function saveTask(existingId) {
-  const title = document.getElementById('task-title').value.trim();
-  if (!title) return;
-  const task = {
-    id: existingId || uid(),
-    title,
-    description: document.getElementById('task-desc').value,
-    status: document.getElementById('task-status').value,
-    priority: document.getElementById('task-priority').value,
-    dueDate: document.getElementById('task-due').value ? new Date(document.getElementById('task-due').value).getTime() : null,
-    createdAt: existingId ? undefined : Date.now(),
-    updatedAt: Date.now()
-  };
-  if (existingId) {
-    const tasks = await dbGetAll('tasks');
-    const existing = tasks.find(t => t.id === existingId);
-    if (existing) task.createdAt = existing.createdAt;
-  }
-  await dbPut('tasks', task);
-  closeModal();
-  renderProjects();
-}
-
-async function openEditTaskModal(id) {
-  const tasks = await dbGetAll('tasks');
-  const t = tasks.find(x => x.id === id);
-  if (!t) return;
-  const dueDateStr = t.dueDate ? new Date(t.dueDate).toISOString().split('T')[0] : '';
-  openModal(`
-    <div class="modal-header"><h2>Edit Task</h2><button class="modal-close" onclick="closeModal()">×</button></div>
-    <div class="modal-body">
-      <div class="form-group"><label>Title</label><input id="task-title" value="${esc(t.title)}"></div>
-      <div class="form-group"><label>Description</label><textarea id="task-desc">${esc(t.description || '')}</textarea></div>
-      <div class="form-group"><label>Status</label>
-        <select id="task-status"><option value="to-do">To Do</option><option value="in-progress" selected>In Progress</option><option value="done">Done</option></select>
-      </div>
-      <div class="form-group"><label>Priority</label>
-        <select id="task-priority"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
-      </div>
-      <div class="form-group"><label>Due Date</label><input id="task-due" type="date" value="${dueDateStr}"></div>
-      <div class="modal-actions">
-        <button class="btn btn-danger" onclick="deleteTask('${t.id}')">Delete</button>
-        <div style="flex:1"></div>
-        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="saveTask('${t.id}')">Save</button>
-      </div>
-    </div>
-  `);
-}
-
-async function deleteTask(id) {
-  await dbDelete('tasks', id);
-  closeModal();
-  renderProjects();
-}
-
-// NOTES & DOCS
-let currentNoteId = null;
-
-async function renderNotes(searchQuery) {
-  let notes = await dbGetAll('notes');
-  notes.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
-
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase();
-    notes = notes.filter(n => (n.title || '').toLowerCase().includes(q) || (n.body || '').toLowerCase().includes(q));
-  }
-
-  document.getElementById('notes-actions').style.display = '';
-  document.getElementById('notes-search').style.display = '';
-  document.getElementById('note-editor').style.display = 'none';
-  document.getElementById('notes-list').style.display = '';
-  currentNoteId = null;
-
-  const el = document.getElementById('notes-list');
-  if (notes.length === 0) {
-    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">✎</div><h3>No notes yet</h3><p>Start writing — capture ideas, meeting notes, anything.</p></div>`;
-  } else {
-    el.innerHTML = `<div class="notes-grid">${notes.map(n => `
-      <div class="note-card" onclick="openNote('${n.id}')">
-        <div class="note-card-title">${esc(n.title || 'Untitled')}</div>
-        <div class="note-card-preview">${esc(n.body || '')}</div>
-        <div class="note-card-date">${formatDate(n.updatedAt)}</div>
-      </div>
-    `).join('')}</div>`;
-  }
-}
-
-async function createNote() {
-  const note = { id: uid(), title: '', body: '', createdAt: Date.now(), updatedAt: Date.now() };
-  await dbPut('notes', note);
-  openNote(note.id);
-}
-
-async function openNote(id) {
-  const notes = await dbGetAll('notes');
-  const note = notes.find(n => n.id === id);
-  if (!note) return;
-  currentNoteId = id;
-
-  document.getElementById('notes-actions').style.display = 'none';
-  document.getElementById('notes-search').style.display = 'none';
-  document.getElementById('notes-list').style.display = 'none';
-  document.getElementById('note-editor').style.display = '';
-
-  document.getElementById('note-editor').innerHTML = `
-    <div class="editor-container">
-      <div class="editor-back" onclick="renderNotes()">← All Notes</div>
-      <input class="editor-title" id="note-title" value="${esc(note.title)}" placeholder="Untitled" oninput="autoSaveNote()">
-      <textarea class="editor-body" id="note-body" placeholder="Start writing..." oninput="autoSaveNote()">${esc(note.body || '')}</textarea>
-      <div style="margin-top:16px; display:flex; gap:8px;">
-        <button class="btn btn-danger btn-sm" onclick="deleteNote('${note.id}')">Delete Note</button>
-      </div>
-    </div>
-  `;
-  document.getElementById('note-title').focus();
-}
-
-let saveTimeout;
-function autoSaveNote() {
-  clearTimeout(saveTimeout);
-  saveTimeout = setTimeout(async () => {
-    if (!currentNoteId) return;
-    const notes = await dbGetAll('notes');
-    const note = notes.find(n => n.id === currentNoteId);
-    if (!note) return;
-    note.title = document.getElementById('note-title').value;
-    note.body = document.getElementById('note-body').value;
-    note.updatedAt = Date.now();
-    await dbPut('notes', note);
-  }, 500);
-}
-
-async function deleteNote(id) {
-  await dbDelete('notes', id);
-  renderNotes();
-}
-
-// STORYBOARDS
-let currentStoryboardId = null;
-
-async function renderStoryboards() {
-  const boards = await dbGetAll('storyboards');
-  boards.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
-  currentStoryboardId = null;
-
-  document.getElementById('storyboard-detail').style.display = 'none';
-  document.getElementById('storyboard-list').style.display = '';
-
-  const el = document.getElementById('storyboard-list');
-  if (boards.length === 0) {
-    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">▦</div><h3>No storyboards yet</h3><p>Create one to start planning your visual sequences.</p></div>`;
-  } else {
-    el.innerHTML = `<div class="binder-list">${boards.map(b => `
-      <div class="binder-card" onclick="openStoryboard('${b.id}')">
-        <div class="binder-icon" style="background: var(--purple-light);">▦</div>
-        <div class="binder-info">
-          <h3>${esc(b.title)}</h3>
-          <p>${b.frames ? b.frames.length : 0} frames${b.description ? ' — ' + esc(b.description) : ''}</p>
-        </div>
-        <div class="binder-date">${formatDate(b.updatedAt)}</div>
-      </div>
-    `).join('')}</div>`;
-  }
-}
-
-function openStoryboardModal() {
-  openModal(`
-    <div class="modal-header"><h2>New Storyboard</h2><button class="modal-close" onclick="closeModal()">×</button></div>
-    <div class="modal-body">
-      <div class="form-group"><label>Title</label><input id="sb-title" placeholder="e.g. Brand Launch Video"></div>
-      <div class="form-group"><label>Description</label><textarea id="sb-desc" placeholder="What is this storyboard for?"></textarea></div>
-      <div class="form-group"><label>Type</label>
-        <select id="sb-type">
-          <option value="video">Video</option>
-          <option value="photo">Photo Shoot</option>
-          <option value="social">Social Content</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveStoryboard()">Create</button></div>
-    </div>
-  `);
-  document.getElementById('sb-title').focus();
-}
-
-async function saveStoryboard() {
-  const title = document.getElementById('sb-title').value.trim();
-  if (!title) return;
-  const sb = {
-    id: uid(),
-    title,
-    description: document.getElementById('sb-desc').value,
-    type: document.getElementById('sb-type').value,
-    frames: [],
-    createdAt: Date.now(),
-    updatedAt: Date.now()
-  };
-  await dbPut('storyboards', sb);
-  closeModal();
-  openStoryboard(sb.id);
-}
-
-async function openStoryboard(id) {
-  const boards = await dbGetAll('storyboards');
-  const sb = boards.find(b => b.id === id);
-  if (!sb) return;
-  currentStoryboardId = id;
-
-  document.getElementById('storyboard-list').style.display = 'none';
-  document.getElementById('storyboard-detail').style.display = '';
-
-  const typeEmojis = { video: '🎬', photo: '📷', social: '📱', other: '🎨' };
-  const frames = sb.frames || [];
-
-  document.getElementById('storyboard-detail').innerHTML = `
-    <div class="editor-back" onclick="renderStoryboards()">← All Storyboards</div>
-    <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
-      <span style="font-size:24px">${typeEmojis[sb.type] || '🎨'}</span>
-      <h2 style="font-size:22px; font-weight:700;">${esc(sb.title)}</h2>
-    </div>
-    <p style="font-size:13px; color:var(--text-secondary); margin-bottom:20px;">${esc(sb.description || '')}</p>
-    <div style="margin-bottom:16px; display:flex; gap:8px;">
-      <button class="btn btn-primary btn-sm" onclick="addFrame('${sb.id}')">+ Add Frame</button>
-      <button class="btn btn-danger btn-sm" onclick="deleteStoryboard('${sb.id}')">Delete Storyboard</button>
-    </div>
-    <div class="storyboard-grid" id="frames-grid">
-      ${frames.length === 0 ? '<div class="empty-state" style="grid-column: 1/-1;"><div class="empty-state-icon">▦</div><h3>No frames yet</h3><p>Add your first frame to start building the sequence.</p></div>' :
-        frames.map((f, i) => `
-          <div class="story-card" onclick="editFrame('${sb.id}', ${i})">
-            <div class="story-card-visual">
-              <span class="story-card-number">${i + 1}</span>
-              ${f.emoji || '🎞'}
-            </div>
-            <div class="story-card-body">
-              <div class="story-card-title">${esc(f.title || 'Frame ' + (i + 1))}</div>
-              <div class="story-card-desc">${esc(f.description || '')}</div>
-            </div>
-            <div class="story-card-footer">
-              ${f.shotType ? `<span class="tag tag-purple">${esc(f.shotType)}</span>` : ''}
-              ${f.duration ? `<span class="tag tag-gray">${esc(f.duration)}</span>` : ''}
-              ${f.audio ? `<span class="tag tag-blue">🔊 ${esc(f.audio)}</span>` : ''}
-            </div>
-          </div>
-        `).join('')
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
       }
-    </div>
-  `;
-}
-
-async function addFrame(sbId) {
-  const boards = await dbGetAll('storyboards');
-  const sb = boards.find(b => b.id === sbId);
-  if (!sb) return;
-  if (!sb.frames) sb.frames = [];
-
-  openModal(`
-    <div class="modal-header"><h2>Add Frame</h2><button class="modal-close" onclick="closeModal()">×</button></div>
-    <div class="modal-body">
-      <div class="form-group"><label>Frame Title</label><input id="frame-title" placeholder="e.g. Opening wide shot"></div>
-      <div class="form-group"><label>Description / Action</label><textarea id="frame-desc" placeholder="What happens in this frame?"></textarea></div>
-      <div class="form-group"><label>Shot Type</label>
-        <select id="frame-shot">
-          <option value="">None</option>
-          <option value="Wide">Wide</option>
-          <option value="Medium">Medium</option>
-          <option value="Close-up">Close-up</option>
-          <option value="Extreme CU">Extreme CU</option>
-          <option value="Over Shoulder">Over Shoulder</option>
-          <option value="POV">POV</option>
-          <option value="Drone / Aerial">Drone / Aerial</option>
-          <option value="Tracking">Tracking</option>
-          <option value="Static">Static</option>
-          <option value="B-Roll">B-Roll</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Duration</label><input id="frame-dur" placeholder="e.g. 3s, 5-8s"></div>
-      <div class="form-group"><label>Audio / VO</label><input id="frame-audio" placeholder="e.g. Voiceover: 'In a world...'"></div>
-      <div class="form-group"><label>Visual Icon</label>
-        <select id="frame-emoji">
-          <option value="🎞">🎞 Film</option>
-          <option value="🎬">🎬 Clapboard</option>
-          <option value="📷">📷 Camera</option>
-          <option value="📼">📼 Image</option>
-          <option value="🏞">🏞 Landscape</option>
-          <option value="👤">👤 Person</option>
-          <option value="👥">👥 People</option>
-          <option value="🎤">🎤 Interview</option>
-          <option value="📱">📱 Phone/Screen</option>
-          <option value="🔲">🔲 Title Card</option>
-          <option value="✨">✨ Transition</option>
-        </select>
-      </div>
-      <div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveFrame('${sbId}')">Add Frame</button></div>
-    </div>
-  `);
-}
-
-async function saveFrame(sbId, frameIndex) {
-  const boards = await dbGetAll('storyboards');
-  const sb = boards.find(b => b.id === sbId);
-  if (!sb) return;
-
-  const frame = {
-    title: document.getElementById('frame-title').value,
-    description: document.getElementById('frame-desc').value,
-    shotType: document.getElementById('frame-shot').value,
-    duration: document.getElementById('frame-dur').value,
-    audio: document.getElementById('frame-audio').value,
-    emoji: document.getElementById('frame-emoji').value
-  };
-
-  if (frameIndex !== undefined) {
-    sb.frames[frameIndex] = frame;
-  } else {
-    if (!sb.frames) sb.frames = [];
-    sb.frames.push(frame);
-  }
-  sb.updatedAt = Date.now();
-  await dbPut('storyboards', sb);
-  closeModal();
-  openStoryboard(sbId);
-}
-
-async function editFrame(sbId, frameIndex) {
-  const boards = await dbGetAll('storyboards');
-  const sb = boards.find(b => b.id === sbId);
-  if (!sb || !sb.frames[frameIndex]) return;
-  const f = sb.frames[frameIndex];
-
-  openModal(`
-    <div class="modal-header"><h2>Edit Frame ${frameIndex + 1}</h2><button class="modal-close" onclick="closeModal()">×</button></div>
-    <div class="modal-body">
-      <div class="form-group"><label>Frame Title</label><input id="frame-title" value="${esc(f.title || '')}"></div>
-      <div class="form-group"><label>Description / Action</label><textarea id="frame-desc">${esc(f.description || '')}</textarea></div>
-      <div class="form-group"><label>Shot Type</label>
-        <select id="frame-shot">
-          <option value="">None</option>
-          ${['Wide','Medium','Close-up','Extreme CU','Over Shoulder','POV','Drone / Aerial','Tracking','Static','B-Roll'].map(s => `<option value="${s}" ${f.shotType === s ? 'selected' : ''}>${s}</option>`).join('')}
-        </select>
-      </div>
-      <div class="form-group"><label>Duration</label><input id="frame-dur" value="${esc(f.duration || '')}"></div>
-      <div class="form-group"><label>Audio / VO</label><input id="frame-audio" value="${esc(f.audio || '')}"></div>
-      <div class="form-group"><label>Visual Icon</label>
-        <select id="frame-emoji">
-          ${['🎞','🎬','📷','📼','🏞','👤','👥','🎤','📱','🔲','✨'].map(e => `<option value="${e}" ${f.emoji === e ? 'selected' : ''}>${e}</option>`).join('')}
-        </select>
-      </div>
-      <div class="modal-actions">
-        <button class="btn btn-danger" onclick="deleteFrame('${sbId}', ${frameIndex})">Delete</button>
-        <div style="flex:1"></div>
-        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="saveFrame('${sbId}', ${frameIndex})">Save</button>
-      </div>
-    </div>
-  `);
-}
-
-async function deleteFrame(sbId, frameIndex) {
-  const boards = await dbGetAll('storyboards');
-  const sb = boards.find(b => b.id === sbId);
-  if (!sb) return;
-  sb.frames.splice(frameIndex, 1);
-  sb.updatedAt = Date.now();
-  await dbPut('storyboards', sb);
-  closeModal();
-  openStoryboard(sbId);
-}
-
-async function deleteStoryboard(id) {
-  await dbDelete('storyboards', id);
-  renderStoryboards();
-}
-
-// PRODUCTION BINDERS
-let currentBinderId = null;
-
-async function renderBinders() {
-  const binders = await dbGetAll('binders');
-  binders.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
-  currentBinderId = null;
-
-  document.getElementById('binder-detail').style.display = 'none';
-  document.getElementById('binders-list').style.display = '';
-
-  const el = document.getElementById('binders-list');
-  if (binders.length === 0) {
-    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">▤</div><h3>No production binders yet</h3><p>Create a binder to organize your next shoot or project.</p></div>`;
-  } else {
-    const typeIcons = { video: '🎬', photo: '📷', social: '📱', event: '🎪', podcast: '🎙', other: '📁' };
-    el.innerHTML = `<div class="binder-list">${binders.map(b => `
-      <div class="binder-card" onclick="openBinder('${b.id}')">
-        <div class="binder-icon" style="background: var(--accent-light);">${typeIcons[b.type] || '📁'}</div>
-        <div class="binder-info">
-          <h3>${esc(b.title)}</h3>
-          <p>${esc(b.client || '')}${b.client && b.shootDate ? ' — ' : ''}${b.shootDate ? formatDate(b.shootDate) : ''}</p>
-        </div>
-        <div class="binder-date">${formatDate(b.updatedAt)}</div>
-      </div>
-    `).join('')}</div>`;
-  }
-}
-
-function openBinderModal() {
-  openModal(`
-    <div class="modal-header"><h2>New Production Binder</h2><button class="modal-close" onclick="closeModal()">×</button></div>
-    <div class="modal-body">
-      <div class="form-group"><label>Project Title</label><input id="binder-title" placeholder="e.g. Q2 Brand Campaign Shoot"></div>
-      <div class="form-group"><label>Client</label><input id="binder-client" placeholder="e.g. Yamaha"></div>
-      <div class="form-group"><label>Type</label>
-        <select id="binder-type">
-          <option value="video">Video Production</option>
-          <option value="photo">Photo Shoot</option>
-          <option value="social">Social Content</option>
-          <option value="event">Event</option>
-          <option value="podcast">Podcast / Audio</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Shoot / Event Date</label><input id="binder-date" type="date"></div>
-      <div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveBinder()">Create Binder</button></div>
-    </div>
-  `);
-  document.getElementById('binder-title').focus();
-}
-
-async function saveBinder() {
-  const title = document.getElementById('binder-title').value.trim();
-  if (!title) return;
-  const binder = {
-    id: uid(),
-    title,
-    client: document.getElementById('binder-client').value,
-    type: document.getElementById('binder-type').value,
-    shootDate: document.getElementById('binder-date').value ? new Date(document.getElementById('binder-date').value).getTime() : null,
-    overview: '',
-    crew: '',
-    talent: '',
-    locations: '',
-    schedule: '',
-    shotList: '',
-    equipment: '',
-    wardrobe: '',
-    deliverables: '',
-    notes: '',
-    createdAt: Date.now(),
-    updatedAt: Date.now()
-  };
-  await dbPut('binders', binder);
-  closeModal();
-  openBinder(binder.id);
-}
-
-async function openBinder(id) {
-  const binders = await dbGetAll('binders');
-  const b = binders.find(x => x.id === id);
-  if (!b) return;
-  currentBinderId = id;
-
-  document.getElementById('binders-list').style.display = 'none';
-  document.getElementById('binder-detail').style.display = '';
-
-  const sections = [
-    { key: 'overview', label: 'Project Overview', placeholder: 'High-level description, goals, creative direction...' },
-    { key: 'schedule', label: 'Schedule & Timeline', placeholder: 'Call times, scene order, key milestones...' },
-    { key: 'crew', label: 'Crew & Contacts', placeholder: 'Director, DP, producer, PA, contact info...' },
-    { key: 'talent', label: 'Talent & Cast', placeholder: 'Talent names, roles, call times, wardrobe notes...' },
-    { key: 'locations', label: 'Locations', placeholder: 'Addresses, permits, parking, access notes...' },
-    { key: 'shotList', label: 'Shot List', placeholder: 'Scene-by-scene breakdown of required shots...' },
-    { key: 'equipment', label: 'Equipment & Gear', placeholder: 'Camera, lenses, lighting, audio, grip...' },
-    { key: 'wardrobe', label: 'Wardrobe & Styling', placeholder: 'Outfit descriptions, props, brand guidelines...' },
-    { key: 'deliverables', label: 'Deliverables & Specs', placeholder: 'Formats, aspect ratios, platforms, due dates...' },
-    { key: 'notes', label: 'Additional Notes', placeholder: 'Anything else — parking, catering, weather backup...' },
-  ];
-
-  document.getElementById('binder-detail').innerHTML = `
-    <div class="editor-back" onclick="renderBinders()">← All Binders</div>
-    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
-      <div>
-        <h2 style="font-size:22px; font-weight:700;">${esc(b.title)}</h2>
-        <p style="font-size:13px; color:var(--text-secondary);">${esc(b.client || 'No client')}${b.shootDate ? ' — ' + formatDate(b.shootDate) : ''}</p>
-      </div>
-      <button class="btn btn-danger btn-sm" onclick="deleteBinder('${b.id}')">Delete Binder</button>
-    </div>
-    ${sections.map(s => `
-      <div class="binder-section">
-        <h3>${s.label}</h3>
-        <textarea class="editor-body" style="min-height:100px; border:1px solid var(--border); border-radius:var(--radius); padding:10px; font-size:14px;"
-          data-binder-field="${s.key}" placeholder="${s.placeholder}"
-          oninput="autoSaveBinder('${b.id}')">${esc(b[s.key] || '')}</textarea>
-      </div>
-    `).join('')}
-  `;
-}
-
-let binderSaveTimeout;
-function autoSaveBinder(binderId) {
-  clearTimeout(binderSaveTimeout);
-  binderSaveTimeout = setTimeout(async () => {
-    const binders = await dbGetAll('binders');
-    const b = binders.find(x => x.id === binderId);
-    if (!b) return;
-    document.querySelectorAll('[data-binder-field]').forEach(el => {
-      b[el.dataset.binderField] = el.value;
     });
-    b.updatedAt = Date.now();
-    await dbPut('binders', b);
-  }, 500);
-}
-
-async function deleteBinder(id) {
-  await dbDelete('binders', id);
-  renderBinders();
-}
-
-// INIT
-renderDashboard();
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>
-
-
-.editor-body {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  font-family: var(--font);
-  color: var(--text);
-  line-height: 1.7;
-  min-height: 400px;
-  resize: none;
-  background: transparent;
-}
-
-.editor-body::placeholder { color: var(--text-light); }
-
-  --green-light: #e4f5eb;
-  --yellow: #dfab01;
-  --yellow-light: #fdf4d4;
-  --purple: #9065b0;
-  --purple-light: #f0e6f6;
-  --orange: #d9730d;
-  --orange-light: #fdebd0;
-  --pink: #c14c8a;
-  --pink-light: #f5e0ef;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
-  --radius: 6px;
-  --radius-lg: 10px;
-  --sidebar-width: 260px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "SF Mono", "Fira Code", monospace;
-}
